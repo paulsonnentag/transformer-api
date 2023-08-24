@@ -1,8 +1,9 @@
 import { Repo } from "@automerge/automerge-repo"
 import { IndexedDBStorageAdapter } from "@automerge/automerge-repo-storage-indexeddb"
-import { getAutomergeSink, getAutomergeSource, getLogger } from "./transformer";
 import { toJS } from "./utils";
-
+import { Module } from "./transformers/typescriptCompiler";
+import { getAutomergeSink, getAutomergeSource } from "./transformers/automerge";
+import { getLogger } from "./transformers/logger";
 
 export const repo = new Repo({
   network: [],
@@ -10,15 +11,10 @@ export const repo = new Repo({
 })
 
 
+const handle1 = repo.create<Module>()
+const handle2 = repo.create<Module>()
 
-interface ModuleDoc {
-  files: Record<string, string>
-}
-
-const handle1 = repo.create<ModuleDoc>()
-const handle2 = repo.create<ModuleDoc>()
-
-handle1.change((doc: ModuleDoc) => {
+handle1.change((doc: Module) => {
   doc.files = {
     "index.ts": `
       import { foo } from "./foo"     
@@ -30,7 +26,7 @@ handle1.change((doc: ModuleDoc) => {
   }
 }, {
   patchCallback: () => {
-    handle1.change((doc: ModuleDoc) => {
+    handle1.change((doc: Module) => {
       delete doc.files["readme.md"]
     })
   }
