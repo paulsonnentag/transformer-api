@@ -10,23 +10,21 @@ export function getAutomergeSource<Data>(docHandle: DocHandle<Data>, target: Tra
   // emit initial patches
   docHandle.doc().then(async (doc) => {
     const patches = await getInitialPatches(doc)
-    target.onPatch(doc, patches)
+    target.patch(doc, patches)
   })
 
   const onChange = async ({ doc, patches }: DocHandleChangePayload<unknown>) => {
-    target.onPatch(doc, patches)
+    target.patch(doc, patches)
   }
   docHandle.on("change", onChange)
 
   return () => {
     docHandle.off("change", onChange)
-    target.onClose()
+    target.close()
   }
 }
 
-
-// todo: assumes that doc is an object
-export function getAutomergeSink<Data>(docHandle: DocHandle<Data>) {
+export function getAutomergeSink<Data>(docHandle: DocHandle<Data>) : TransformerTarget<Data> {
 
   // clear doc
   docHandle.change((doc) => {
@@ -36,16 +34,14 @@ export function getAutomergeSink<Data>(docHandle: DocHandle<Data>) {
   })
 
   return {
-    onPatch(doc: Data, patches: Patch[]) {
+    patch(doc: Data, patches: Patch[]) {
       docHandle.change((doc) => {
         for (const patch of patches) {
           applyPatch(doc, patch)
         }
       })
     },
-    onClose: () => {
-
-    }
+    close: () => {}
   }
 }
 

@@ -28,10 +28,7 @@ export function getInitialPatches(doc): Promise<Patch[]> {
 
 // todo: currently only implements patch and put
 export function applyPatch(doc, patch: Patch) {
-  let target = doc;
-  for (let i = 0; i < patch.path.length - 1; i++) {
-    target = target[patch.path[i]];
-  }
+  let target = getIn(doc, patch.path.slice(0, -1));
   const key = patch.path[patch.path.length - 1];
 
   if (patch.action === 'put') {
@@ -39,5 +36,16 @@ export function applyPatch(doc, patch: Patch) {
   } else if (patch.action === 'del') {
     delete target[key];
   }
+}
+
+export function getIn(obj: object, path: automerge.Prop[]) : any {
+  let current = obj
+  for (const key of path) {
+    if (!current) {
+      return undefined
+    }
+    current = current[key]
+  }
+  return current
 }
 

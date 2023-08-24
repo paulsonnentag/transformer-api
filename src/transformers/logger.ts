@@ -2,7 +2,7 @@ import { TransformerTarget } from "./api";
 
 export function getLogger<T>(name: string, target: TransformerTarget<T>): TransformerTarget<T> {
   return {
-    onPatch: (doc, patches) => {
+    patch: (doc, patches) => {
       for (const patch of patches) {
 
         if ("value" in patch) {
@@ -13,10 +13,10 @@ export function getLogger<T>(name: string, target: TransformerTarget<T>): Transf
       }
 
       if (target) {
-        target.onPatch(doc, patches)
+        target.patch(doc, patches)
       }
     },
-    onClose: () => {
+    close: () => {
     }
   }
 }
