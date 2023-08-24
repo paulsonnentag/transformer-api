@@ -519,6 +519,14 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@onsetsoftware/automerge-patcher@0.8.0-alpha.11":
+  version "0.8.0-alpha.11"
+  resolved "https://registry.yarnpkg.com/@onsetsoftware/automerge-patcher/-/automerge-patcher-0.8.0-alpha.11.tgz#7530c1c4a28b82d5431493a26587dc85bbb65e9a"
+  integrity sha512-e5sibOrtkks/PazsV12UTzQVU7d4OgrIBMPGNbMz9UqkjSiisOrLolcBhylOxE0LXva4TAP8Mmm0C8CLm4sMDg==
+  dependencies:
+    dot-path-value "^0.0.10"
+    is-plain-object "^5.0.0"
+
 "@rollup/plugin-virtual@^3.0.1":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-virtual/-/plugin-virtual-3.0.1.tgz#cea7e489481cc0ca91516c047f8c53c1cfb1adf6"
@@ -982,6 +990,11 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
+dot-path-value@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/dot-path-value/-/dot-path-value-0.0.10.tgz#538239fe60597f0fd753b0a8e31e6e3459baddf2"
+  integrity sha512-MrVpDoFwk1xjeM0sGRuei7N3LQOylJ9iamgfxAQwPY0hPnDHL981hM/KpoQwFHMckgjZvJA0MyH7VN//ernFFA==
+
 electron-to-chromium@^1.4.477:
   version "1.4.499"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.499.tgz#dc36b67f4c8e273524e8d2080c5203a6a76987b6"
@@ -1339,6 +1352,11 @@ is-path-inside@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/is-path-inside/-/is-path-inside-3.0.3.tgz#d231362e53a07ff2b0e0ea7fed049161ffd16283"
   integrity sha512-Fd4gABb+ycGAmKou8eMftCupSir5lRxqf4aD/vd0cD2qc4HL07OjCeuHMr8Ro4CoMaeCKDB0/ECBOVWjTwUvPQ==
+
+is-plain-object@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/is-plain-object/-/is-plain-object-5.0.0.tgz#4427f50ab3429e9025ea7d52e9043a9ef4159344"
+  integrity sha512-VRSzKkbMm5jMDoKLbltAkFQ5Qr7VDiTFGXxYFXXowVj387GeGNOCsOH6Msy00SGZ3Fp84b1Naa1psqgcCIEP5Q==
 
 isexe@^2.0.0:
   version "2.0.0"

@@ -1,6 +1,7 @@
 import { Repo } from "@automerge/automerge-repo"
 import { IndexedDBStorageAdapter } from "@automerge/automerge-repo-storage-indexeddb"
-import { getAutomergeSource, getLogSink } from "./api";
+import { getAutomergeSink, getAutomergeSource, getLogger } from "./transformer";
+import { toJS } from "./utils";
 
 
 export const repo = new Repo({
@@ -8,13 +9,16 @@ export const repo = new Repo({
   storage: new IndexedDBStorageAdapter(),
 })
 
+
+
 interface ModuleDoc {
   files: Record<string, string>
 }
 
-const doc1 = repo.create<ModuleDoc>()
+const handle1 = repo.create<ModuleDoc>()
+const handle2 = repo.create<ModuleDoc>()
 
-doc1.change((doc: ModuleDoc) => {
+handle1.change((doc: ModuleDoc) => {
   doc.files = {
     "index.ts": `
       import { foo } from "./foo"     
@@ -24,16 +28,18 @@ doc1.change((doc: ModuleDoc) => {
     "foo.ts": "export const foo = 42",
     "readme.md": "readme"
   }
+}, {
+  patchCallback: () => {
+    handle1.change((doc: ModuleDoc) => {
+      delete doc.files["readme.md"]
+    })
+  }
 })
 
+getAutomergeSource(handle1, getLogger("LOGGER", getAutomergeSink(handle2)))
 
-getAutomergeSource(doc1, getLogSink())
+console.log("output doc", toJS(await handle2.doc()).files)
+console.log("input doc", toJS(await handle1.doc()).files)
 
-
-doc1.change((doc: ModuleDoc) => {
-  delete doc.files["readme.md"]
-})
-
-console.log("foobar")
 
 

@@ -14,6 +14,7 @@
     "@automerge/automerge-repo": "1.0.0-alpha.3",
     "@automerge/automerge-repo-network-broadcastchannel": "1.0.0-alpha.3",
     "@automerge/automerge-repo-storage-indexeddb": "1.0.0-alpha.3",
+    "@onsetsoftware/automerge-patcher": "0.8.0-alpha.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
