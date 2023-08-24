@@ -15,45 +15,46 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@automerge/automerge-repo-network-broadcastchannel@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@automerge/automerge-repo-network-broadcastchannel/-/automerge-repo-network-broadcastchannel-0.2.1.tgz#194db916ec11dbdabbd0c500090f56dd38f847a3"
-  integrity sha512-WQiizRNzVdla96kpL+pRjfKGaX1uxJAaL7953lXns3Y40DYYoPRlU3SoUo427+f6PM37x1cJR9zo3dduydIl/Q==
+"@automerge/automerge-repo-network-broadcastchannel@1.0.0-alpha.3":
+  version "1.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@automerge/automerge-repo-network-broadcastchannel/-/automerge-repo-network-broadcastchannel-1.0.0-alpha.3.tgz#7ad62ca04000353a0c3a8363d3f04c1028d32c0a"
+  integrity sha512-lMKU3G95A30fnqIntQiqwTQCP7lm8hNQfK5Ebkr/274GSXlmvA2/G+J4Kv+n8kzKnJGEjK3am6WTufAy9yaSRg==
   dependencies:
-    "@automerge/automerge-repo" "^0.2.1"
+    "@automerge/automerge-repo" "^1.0.0-alpha.3"
 
-"@automerge/automerge-repo-storage-indexeddb@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@automerge/automerge-repo-storage-indexeddb/-/automerge-repo-storage-indexeddb-0.2.1.tgz#6a2aeca2808df9a7bd14e3055f194b80a4b91f83"
-  integrity sha512-ikhrXs6bXIAlh7muCu/RpnhH7fTOJ/8Bt47X96qJ6/0tkpWGlJzOKrPnWJM2vC9+tSR+QU+ppwqMK5Ml+Uw8MA==
+"@automerge/automerge-repo-storage-indexeddb@1.0.0-alpha.3":
+  version "1.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@automerge/automerge-repo-storage-indexeddb/-/automerge-repo-storage-indexeddb-1.0.0-alpha.3.tgz#bfbf75b2988dc0dc7700aaae398d4c1c302d3313"
+  integrity sha512-zHNbyeWdFxgO8inkNipMASilOftkhrgZ6f2e4wWVwhl0IKCQIn4BBQDQTsQa8Szr2DAse79xVaA4GBxXAe8Pcg==
   dependencies:
-    "@automerge/automerge-repo" "^0.2.1"
+    "@automerge/automerge-repo" "^1.0.0-alpha.3"
 
-"@automerge/automerge-repo@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@automerge/automerge-repo/-/automerge-repo-0.2.1.tgz#d1828aeb1ee79aba37624c536745becc98b1988c"
-  integrity sha512-0JYA/YVnPjWtdhGytXv8HANtaG0yr0zlJuy3uA7LyUk1ApnvpyBMJ4ybGqBY8eyHXXa4Poyxg2K0SQOLoqM74w==
+"@automerge/automerge-repo@1.0.0-alpha.3", "@automerge/automerge-repo@^1.0.0-alpha.3":
+  version "1.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@automerge/automerge-repo/-/automerge-repo-1.0.0-alpha.3.tgz#fc3f8e99b5b0fe578b4185e444ed3fa307afb669"
+  integrity sha512-rgJgK0ljEeCA1I20+2GhXp+ezIpoGgkTsRAzEtIPfHmSEkNxQV6B8DVN7T4sccHm4/8n5vicpTdeJYa6dweP8Q==
   dependencies:
+    bs58check "^3.0.1"
     cbor-x "^1.3.0"
     debug "^4.3.4"
-    eventemitter3 "^4.0.7"
+    eventemitter3 "^5.0.1"
     fast-sha256 "^1.3.0"
     tiny-typed-emitter "^2.1.0"
     ts-node "^10.9.1"
     uuid "^8.3.2"
     xstate "^4.37.0"
 
-"@automerge/automerge-wasm@^0.1.26":
-  version "0.1.26"
-  resolved "https://registry.yarnpkg.com/@automerge/automerge-wasm/-/automerge-wasm-0.1.26.tgz#825848beab15a759de273fa4f99e9344c3850a26"
-  integrity sha512-NLH7KpErTuy2O1VIA0uE+48e0u69o0qL8/9RZYjLd2uEZeWBzIWbhyDJGfUPDMIYXtkcy8z2H7h6YcwusG0BXA==
+"@automerge/automerge-wasm@^0.2.9":
+  version "0.2.10"
+  resolved "https://registry.yarnpkg.com/@automerge/automerge-wasm/-/automerge-wasm-0.2.10.tgz#e37b5a3fd4ca7ad6cdf244790383d416a1bd1739"
+  integrity sha512-eznesgpWcB/GWin+7pAVO2zoILxsOiNF84pggLzHU0BOLa6kSkqgGX3cgC1577UdkNi0h7hvM7rxd7nTAt1R3Q==
 
-"@automerge/automerge@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@automerge/automerge/-/automerge-2.0.3.tgz#ff040d9dbc3f203bf9fea7c58d815c0a94e5ea14"
-  integrity sha512-ihfyW/pt+bmHNmPzf4nyH9OzfowAlOaK+1XD8wbtbsJeaGL/8Kap88xMO0lU3wgrddsrZtX5uTbrB/6kMl1PEA==
+"@automerge/automerge@2.1.0-alpha.10":
+  version "2.1.0-alpha.10"
+  resolved "https://registry.yarnpkg.com/@automerge/automerge/-/automerge-2.1.0-alpha.10.tgz#8ae76e1873d5294056c27f747380ad7b1894a1bd"
+  integrity sha512-odSya+OQaIJPL5FalrbXhF1Eal5Oe5jzMGQkrJPUUj3zsu4bZmz6EuJ6VMKTTRE4Q6+ZovsOGtHDEa89ddmWiw==
   dependencies:
-    "@automerge/automerge-wasm" "^0.1.26"
+    "@automerge/automerge-wasm" "^0.2.9"
     uuid "^9.0.0"
 
 "@babel/code-frame@^7.22.10", "@babel/code-frame@^7.22.5":
@@ -492,6 +493,11 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
+"@noble/hashes@^1.2.0":
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/@noble/hashes/-/hashes-1.3.2.tgz#6f26dbc8fbc7205873ce3cee2f690eba0d421b39"
+  integrity sha512-MVC8EAQp7MvEcm30KWENFjgR+Mkmf+D189XJTkFIlwohU5hcBbn1ZkKq7KVTi2Hme3PMGF390DaL52beVrIihQ==
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"
@@ -799,6 +805,11 @@ balanced-match@^1.0.0:
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"
   integrity sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==
 
+base-x@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/base-x/-/base-x-4.0.0.tgz#d0e3b7753450c73f8ad2389b5c018a4af7b2224a"
+  integrity sha512-FuwxlW4H5kh37X/oW59pwTzzTKRzfrrQwhmyspRM7swOEZcHtDZSCt45U6oKgtuFE+WYPblePMVIPR4RZrh/hw==
+
 brace-expansion@^1.1.7:
   version "1.1.11"
   resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.11.tgz#3c7fcbf529d87226f3d2f52b966ff5271eb441dd"
@@ -823,6 +834,21 @@ browserslist@^4.21.9:
     electron-to-chromium "^1.4.477"
     node-releases "^2.0.13"
     update-browserslist-db "^1.0.11"
+
+bs58@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/bs58/-/bs58-5.0.0.tgz#865575b4d13c09ea2a84622df6c8cbeb54ffc279"
+  integrity sha512-r+ihvQJvahgYT50JD05dyJNKlmmSlMoOGwn1lCcEzanPglg7TxYjioQUYehQ9mAR/+hOSd2jRc/Z2y5UxBymvQ==
+  dependencies:
+    base-x "^4.0.0"
+
+bs58check@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/bs58check/-/bs58check-3.0.1.tgz#2094d13720a28593de1cba1d8c4e48602fdd841c"
+  integrity sha512-hjuuJvoWEybo7Hn/0xOrczQKKEKD63WguEjlhLExYs2wUBcebDC1jDNK17eEAD2lYfw82d5ASC1d7K3SWszjaQ==
+  dependencies:
+    "@noble/hashes" "^1.2.0"
+    bs58 "^5.0.0"
 
 callsites@^3.0.0:
   version "3.1.0"
@@ -1103,10 +1129,10 @@ esutils@^2.0.2:
   resolved "https://registry.yarnpkg.com/esutils/-/esutils-2.0.3.tgz#74d2eb4de0b8da1293711910d50775b9b710ef64"
   integrity sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==
 
-eventemitter3@^4.0.7:
-  version "4.0.7"
-  resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-4.0.7.tgz#2de9b68f6528d5644ef5c59526a1b4a07306169f"
-  integrity sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==
+eventemitter3@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-5.0.1.tgz#53f5ffd0a492ac800721bb42c66b841de96423c4"
+  integrity sha512-GWkBvjiSZK87ELrYOSESUYeVIc9mvLLf/nXalMOS5dYrgZq9o5OVkbZAVM06CVxYsCwH9BDZFPlQTlPA1j4ahA==
 
 fast-deep-equal@^3.1.1, fast-deep-equal@^3.1.3:
   version "3.1.3"

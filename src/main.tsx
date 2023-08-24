@@ -1,6 +1,6 @@
 import { Repo } from "@automerge/automerge-repo"
 import { IndexedDBStorageAdapter } from "@automerge/automerge-repo-storage-indexeddb"
-import { automergeSource, getLogSink } from "./api";
+import { getAutomergeSource, getLogSink } from "./api";
 
 
 export const repo = new Repo({
@@ -27,13 +27,13 @@ doc1.change((doc: ModuleDoc) => {
 })
 
 
-automergeSource(doc1, getLogSink())
+getAutomergeSource(doc1, getLogSink())
 
 
 doc1.change((doc: ModuleDoc) => {
   delete doc.files["readme.md"]
 })
 
-
+console.log("foobar")
 
 
