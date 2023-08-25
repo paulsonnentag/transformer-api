@@ -16,7 +16,6 @@ export const repo = new Repo({
 const handle1 = repo.create<Module>()
 const handle2 = repo.create<Module>()
 
-
 // getAutomergeSource(handle1, getLogger("LOGGER", getAutomergeSink(handle2)))
 
 /* */
@@ -25,7 +24,7 @@ getAutomergeSource(handle1,
 /* */
 
 /* * /
-
+// currently doesn't work
 getAutomergeSource(handle1,
   getTypescriptCompiler({ compilerOptions: {} },
     getStringDiffTransform(

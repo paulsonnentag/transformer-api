@@ -1,27 +1,60 @@
-# React + TypeScript + Vite
+# Transformer API
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The basic idea is that we have a single interface that transformer targets have to implement.
 
-Currently, two official plugins are available:
+```typescript
+interface TransformerTarget<T> {
+  patch(patches: A.Patch[])
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+  close()
+}
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- patch: This method is called with incoming patches
+- close: This method is called when the transform should be stopped. Any cleanup logic for the transformer should go here
+
+
+A simple example of a transformer is the logger. It's just a function that takes some config and an optional target
+and returns a Transformer target. The logger forwards any calls to patch or close to the next target.
+
+```typescript
+export function getLogger<T>(name: string, target?: TransformerTarget<T>): TransformerTarget<T> {
+  return {
+    patch(patches) {
+      for (const patch of patches) {
+        if ("value" in patch) {
+          console.log(`${name}:`, patch.action, patch.path, patch.value)
+        } else {
+          console.log(`${name}:`, patch.action, patch.path)
+        }
+      }
+
+      target?.patch(patches)
+    },
+
+    close() {
+      target?.close()
+    }
+  }
+}
+```
+
+Transforms can be chained together. Here is an example that pipes the changes from one Automerge document to another
+and logs all changes
+
+```typescript
+const handle1 = repo.create<Module>()
+const handle2 = repo.create<Module>()
+
+getAutomergeSource(handle1,
+  getTypescriptCompiler({ compilerOptions: {} }, getLogger("FILES", getAutomergeSink<Module>(handle2))))
+```
+
+The goal is to have a very minimal API that ideally never changes. As long as all transformers implement the TransformerTarget interface, they are compatible. Anything beyond that should be implemented as helper functions. Currently, there are two helper functions
+that allow you to write transforms that operate on values instead of patches (see `src/transformers/lib.ts`)
+
+- materialize
+  - In the patch function, you receive both a materialized doc and the patches
+- withOutputDoc
+  - builds on materialize
+  - Additionally, you get a changeOutputDoc function; instead of generating patches directly, you can mutate the output doc, and patches are generated automatically

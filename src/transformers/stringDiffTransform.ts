@@ -1,7 +1,8 @@
-import { TransformerTarget } from "./lib";
+import { applyPatch, getIn, materialized, TransformerTarget } from "./lib";
 import * as automerge from "@automerge/automerge"
 import diff from "fast-diff"
-import { applyPatch, getIn } from "../utils";
+
+// WIP, doesn't work currently
 
 // optimizes put patches for string values
 // if there is a previous value the new value is diffed against the old value and instead of
@@ -11,7 +12,7 @@ export function getStringDiffTransform<T>(target: TransformerTarget<T>): Transfo
   let oldInputHeads: automerge.Heads
   let oldOutputHeads = automerge.getHeads(outputDoc)
 
-  return {
+  return materialized({
     patch<T>(doc: T, patches: automerge.Patch[]) {
       if (!oldInputHeads) {
         oldInputHeads = automerge.getHeads(doc)
@@ -51,6 +52,6 @@ export function getStringDiffTransform<T>(target: TransformerTarget<T>): Transfo
     },
     close() {
     }
-  }
+  })
 }
 

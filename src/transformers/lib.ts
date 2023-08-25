@@ -15,7 +15,6 @@ export const nullSink: TransformerTarget<unknown> = {
   }
 }
 
-
 export interface MaterializedTransformerConfig<T> {
   patch(doc: T, patches: A.Patch[])
 

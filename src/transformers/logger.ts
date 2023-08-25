@@ -11,9 +11,7 @@ export function getLogger<T>(name: string, target?: TransformerTarget<T>): Trans
         }
       }
 
-      if (target) {
-        target.patch(patches)
-      }
+      target?.patch(patches)
     },
 
     close() {

@@ -23,7 +23,6 @@ export function getAutomergeSource<Data>(docHandle: DocHandle<Data>, target: Tra
 }
 
 export function getAutomergeSink<Data>(docHandle: DocHandle<Data>) : TransformerTarget<Data> {
-
   // clear doc
   docHandle.change((doc) => {
     for (const key of Object.keys(doc)) {

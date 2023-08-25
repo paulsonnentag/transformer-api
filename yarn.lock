@@ -15,21 +15,21 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@automerge/automerge-repo-network-broadcastchannel@1.0.0-alpha.3":
+"@automerge/automerge-repo-network-broadcastchannel@next":
   version "1.0.0-alpha.3"
   resolved "https://registry.yarnpkg.com/@automerge/automerge-repo-network-broadcastchannel/-/automerge-repo-network-broadcastchannel-1.0.0-alpha.3.tgz#7ad62ca04000353a0c3a8363d3f04c1028d32c0a"
   integrity sha512-lMKU3G95A30fnqIntQiqwTQCP7lm8hNQfK5Ebkr/274GSXlmvA2/G+J4Kv+n8kzKnJGEjK3am6WTufAy9yaSRg==
   dependencies:
     "@automerge/automerge-repo" "^1.0.0-alpha.3"
 
-"@automerge/automerge-repo-storage-indexeddb@1.0.0-alpha.3":
+"@automerge/automerge-repo-storage-indexeddb@next":
   version "1.0.0-alpha.3"
   resolved "https://registry.yarnpkg.com/@automerge/automerge-repo-storage-indexeddb/-/automerge-repo-storage-indexeddb-1.0.0-alpha.3.tgz#bfbf75b2988dc0dc7700aaae398d4c1c302d3313"
   integrity sha512-zHNbyeWdFxgO8inkNipMASilOftkhrgZ6f2e4wWVwhl0IKCQIn4BBQDQTsQa8Szr2DAse79xVaA4GBxXAe8Pcg==
   dependencies:
     "@automerge/automerge-repo" "^1.0.0-alpha.3"
 
-"@automerge/automerge-repo@1.0.0-alpha.3", "@automerge/automerge-repo@^1.0.0-alpha.3":
+"@automerge/automerge-repo@^1.0.0-alpha.3", "@automerge/automerge-repo@next":
   version "1.0.0-alpha.3"
   resolved "https://registry.yarnpkg.com/@automerge/automerge-repo/-/automerge-repo-1.0.0-alpha.3.tgz#fc3f8e99b5b0fe578b4185e444ed3fa307afb669"
   integrity sha512-rgJgK0ljEeCA1I20+2GhXp+ezIpoGgkTsRAzEtIPfHmSEkNxQV6B8DVN7T4sccHm4/8n5vicpTdeJYa6dweP8Q==
@@ -49,7 +49,7 @@
   resolved "https://registry.yarnpkg.com/@automerge/automerge-wasm/-/automerge-wasm-0.2.10.tgz#e37b5a3fd4ca7ad6cdf244790383d416a1bd1739"
   integrity sha512-eznesgpWcB/GWin+7pAVO2zoILxsOiNF84pggLzHU0BOLa6kSkqgGX3cgC1577UdkNi0h7hvM7rxd7nTAt1R3Q==
 
-"@automerge/automerge@2.1.0-alpha.11":
+"@automerge/automerge@next":
   version "2.1.0-alpha.11"
   resolved "https://registry.yarnpkg.com/@automerge/automerge/-/automerge-2.1.0-alpha.11.tgz#e457daca272a4f55ef36310e37d034f25f5904da"
   integrity sha512-rnLc4tus7unceYz34srSQrNlmFEEWEkRxlOyMMf8PLoMLqDNQw/mjWTiG/fDDa6z/0gWTt693CeQ0U0VBXtl2Q==
