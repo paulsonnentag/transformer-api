@@ -1,4 +1,4 @@
-import { TransformerTarget } from "./api";
+import { TransformerTarget } from "./lib";
 import * as automerge from "@automerge/automerge"
 import diff from "fast-diff"
 import { applyPatch, getIn } from "../utils";

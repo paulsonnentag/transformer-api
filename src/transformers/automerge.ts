@@ -2,19 +2,17 @@ import * as automerge from "@automerge/automerge";
 import { Patch, Heads, Doc } from "@automerge/automerge";
 import { DocHandle } from "@automerge/automerge-repo";
 import { DocHandleChangePayload } from "@automerge/automerge-repo/src/DocHandle";
-import { applyPatch, getInitialPatches } from "../utils";
-import { TransformerTarget } from "./api";
+import { applyPatch, TransformerTarget } from "./lib";
 
 export function getAutomergeSource<Data>(docHandle: DocHandle<Data>, target: TransformerTarget<Data>) {
-
   // emit initial patches
   docHandle.doc().then(async (doc) => {
     const patches = await getInitialPatches(doc)
-    target.patch(doc, patches)
+    target.patch(patches)
   })
 
   const onChange = async ({ doc, patches }: DocHandleChangePayload<unknown>) => {
-    target.patch(doc, patches)
+    target.patch(patches)
   }
   docHandle.on("change", onChange)
 
@@ -34,7 +32,7 @@ export function getAutomergeSink<Data>(docHandle: DocHandle<Data>) : Transformer
   })
 
   return {
-    patch(doc: Data, patches: Patch[]) {
+    patch(patches: Patch[]) {
       docHandle.change((doc) => {
         for (const patch of patches) {
           applyPatch(doc, patch)
@@ -43,6 +41,27 @@ export function getAutomergeSink<Data>(docHandle: DocHandle<Data>) : Transformer
     },
     close: () => {}
   }
+}
+
+// todo: not sure if this is the right way to do this
+export function getInitialPatches(doc): Promise<Patch[]> {
+  return new Promise((resolve) => {
+    const changes = automerge.getAllChanges(doc)
+    const initialDoc = automerge.clone(automerge.view(doc, []))
+
+    if (changes.length === 0) {
+      resolve([])
+      return
+    }
+
+    automerge.applyChanges(initialDoc, changes, {
+      patchCallback(patches) {
+        console.log("patch")
+
+        resolve(patches)
+      }
+    })
+  })
 }
 
 

@@ -1,6 +1,2 @@
-import { TransformerTarget } from "./api";
+import { TransformerTarget } from "./lib";
 
-export const nullSink : TransformerTarget<unknown> = {
-  close: () => {},
-  patch: () => {}
-}

@@ -1,10 +1,9 @@
-import { TransformerTarget } from "./api";
+import { TransformerTarget } from "./lib";
 
-export function getLogger<T>(name: string, target: TransformerTarget<T>): TransformerTarget<T> {
+export function getLogger<T>(name: string, target?: TransformerTarget<T>): TransformerTarget<T> {
   return {
-    patch: (doc, patches) => {
+    patch(patches) {
       for (const patch of patches) {
-
         if ("value" in patch) {
           console.log(`${name}:`, patch.action, patch.path, patch.value)
         } else {
@@ -13,10 +12,12 @@ export function getLogger<T>(name: string, target: TransformerTarget<T>): Transf
       }
 
       if (target) {
-        target.patch(doc, patches)
+        target.patch(patches)
       }
     },
-    close: () => {
+
+    close() {
+      target?.close()
     }
   }
 }
